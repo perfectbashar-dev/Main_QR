@@ -9,39 +9,63 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-            background: #f5f5f5;
+            background: #001f3f;
+            color: white;
+            direction: rtl;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
         }
         h1 {
-            color: #333;
+            color: white;
+            margin-bottom: 30px;
         }
         .branches-list {
             list-style: none;
             padding: 0;
         }
         .branch-item {
-            background: white;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #00264d;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        .branch-item:hover {
+            transform: translateY(-5px);
+            background: #003366;
+            border-color: rgba(255,255,255,0.3);
         }
         .branch-item a {
             text-decoration: none;
-            color: #0066cc;
+            color: white;
             font-weight: bold;
+            font-size: 18px;
+            display: block;
         }
-        .branch-item a:hover {
-            text-decoration: underline;
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>فروع مركز اسطنبول</h1>
+        <h1>فروع مركز اسطنبول للأزياء</h1>
+        <p>اختر الفرع الذي تريد زيارته:</p>
+        
         <ul class="branches-list">
             <li class="branch-item">
                 <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/">1. مركز اسطنبول الدوادمي</a>
@@ -56,6 +80,8 @@
                 <a href="https://linktr.ee/goldenpricesa1?utm_source=linktree_profile_share">4. جولدن برايس</a>
             </li>
         </ul>
+        
+        <a href="index.html" class="back-link">↩ العودة إلى الباركود الرئيسي</a>
     </div>
 </body>
 </html>
