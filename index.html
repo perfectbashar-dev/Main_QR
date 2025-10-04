@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الباركود الرئيسي - مركز اسطنبول</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
             background: #f5f5f5;
+            direction: rtl;
         }
         .container {
             max-width: 600px;
@@ -23,34 +23,45 @@
         h1 {
             color: #333;
         }
-        #qrcode {
+        .qrcode-container {
             margin: 20px auto;
             display: inline-block;
+            padding: 10px;
+            background: white;
         }
         .instruction {
             margin-top: 20px;
             color: #666;
+        }
+        .test-link {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .test-link:hover {
+            background: #004499;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>الباركود الرئيسي لفروع مركز اسطنبول</h1>
-        <div id="qrcode"></div>
+        
+        <div class="qrcode-container">
+            <!-- استبدل الرابط في السطر التالي برابط صفحة branches.html الخاصة بك -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://perfectbashar-dev.github.io/اسم-مستودعك/branches.html" 
+                 alt="باركود فروع مركز اسطنبول"
+                 width="250">
+        </div>
+        
         <p class="instruction">امسح الباركود للوصول إلى قائمة الفروع</p>
+        
+        <!-- رابط اختباري للتأكد من أن صفحة الفروع شغالة -->
+        <a href="branches.html" class="test-link">➡ اختبر رابط الفروع (اضغط هنا)</a>
     </div>
-
-    <script>
-        // إنشاء QR Code يشير إلى صفحة الفروع
-        const branchesPageUrl = window.location.href.replace(/index\.html$/, '') + 'branches.html';
-        const qrcode = new QRCode(document.getElementById("qrcode"), {
-            text: branchesPageUrl,
-            width: 256,
-            height: 256,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    </script>
 </body>
 </html>
