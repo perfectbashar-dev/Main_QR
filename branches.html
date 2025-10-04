@@ -5,83 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فروع مركز اسطنبول</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
             padding: 20px;
             background: #001f3f;
             color: white;
             direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
-        h1 {
-            color: white;
+        
+        .header {
             margin-bottom: 30px;
         }
-        .branches-list {
-            list-style: none;
-            padding: 0;
+        
+        h1 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 28px;
         }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+        }
+        
+        .branches-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
         .branch-item {
             background: #00264d;
-            margin: 15px 0;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, background 0.3s ease;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
             border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        
         .branch-item:hover {
             transform: translateY(-5px);
             background: #003366;
             border-color: rgba(255,255,255,0.3);
         }
-        .branch-item a {
-            text-decoration: none;
-            color: white;
+        
+        .branch-name {
             font-weight: bold;
             font-size: 18px;
-            display: block;
+            margin-bottom: 5px;
         }
+        
+        .branch-location {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+        
         .back-link {
             display: inline-block;
-            margin-top: 30px;
             padding: 10px 20px;
             background: rgba(255,255,255,0.1);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             border: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.3s;
         }
+        
         .back-link:hover {
             background: rgba(255,255,255,0.2);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>فروع مركز اسطنبول للأزياء</h1>
-        <p>اختر الفرع الذي تريد زيارته:</p>
+        <div class="header">
+            <h1>فروع مركز اسطنبول</h1>
+            <p class="subtitle">اختر الفرع الذي تريد زيارته</p>
+        </div>
         
-        <ul class="branches-list">
-            <li class="branch-item">
-                <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/">1. مركز اسطنبول الدوادمي</a>
-            </li>
-            <li class="branch-item">
-                <a href="https://linktr.ee/istanbulsa?utm_source=linktree_profile_share">2. مركز اسطنبول الرياض</a>
-            </li>
-            <li class="branch-item">
-                <a href="https://perfectbashar-dev.github.io/istanbul-alkharj/">3. مركز اسطنبول الخرج</a>
-            </li>
-            <li class="branch-item">
-                <a href="https://linktr.ee/goldenpricesa1?utm_source=linktree_profile_share">4. جولدن برايس</a>
-            </li>
-        </ul>
+        <div class="branches-list">
+            <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/" class="branch-item">
+                <div class="branch-name">مركز اسطنبول الدوادمي</div>
+                <div class="branch-location">أحدث الأزياء والمستلزمات</div>
+            </a>
+            
+            <a href="https://linktr.ee/istanbulsa?utm_source=linktree_profile_share" class="branch-item">
+                <div class="branch-name">مركز اسطنبول الرياض</div>
+                <div class="branch-location">عروض حصرية وأسعار مميزة</div>
+            </a>
+            
+            <a href="https://perfectbashar-dev.github.io/istanbul-alkharj/" class="branch-item">
+                <div class="branch-name">مركز اسطنبول الخرج</div>
+                <div class="branch-location">جودة عالية وتنوع في المنتجات</div>
+            </a>
+            
+            <a href="https://linktr.ee/goldenpricesa1?utm_source=linktree_profile_share" class="branch-item">
+                <div class="branch-name">جولدن برايس</div>
+                <div class="branch-location">للأسعار الذهبية والعروض المميزة</div>
+            </a>
+        </div>
         
         <a href="index.html" class="back-link">↩ العودة إلى الباركود الرئيسي</a>
+        
+        <div class="footer">
+            <p>جميع الحقوق محفوظة © 2023 مركز اسطنبول للأزياء</p>
+        </div>
     </div>
 </body>
 </html>
