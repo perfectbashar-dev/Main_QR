@@ -3,236 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروع مركز اسطنبول للأزياء</title>
+    <title>الباركود الرئيسي - مركز اسطنبول</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         body {
-            background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
-            color: #fff;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: Arial, sans-serif;
             text-align: center;
+            padding: 50px;
+            background: #f5f5f5;
         }
-        
         .container {
-            max-width: 1000px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-        }
-        
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .header p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .main-qr-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .qr-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: white;
-            font-weight: bold;
-        }
-        
-        #mainqrcode {
-            margin: 20px auto;
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .qr-name {
-            font-size: 24px;
-            margin-top: 20px;
-            color: white;
-            font-weight: bold;
-            background: rgba(0, 26, 51, 0.7);
-            padding: 15px;
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #qrcode {
+            margin: 20px auto;
             display: inline-block;
         }
-        
-        .qr-instruction {
-            margin-top: 15px;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .branches-section {
-            margin-top: 40px;
-        }
-        
-        .branches-section h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            color: white;
-        }
-        
-        .branches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .instruction {
             margin-top: 20px;
-        }
-        
-        .branch-card {
-            background: #001a33;
-            padding: 25px 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        
-        .branch-card:hover {
-            transform: translateY(-5px);
-            background: #00264d;
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .branch-number {
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-        }
-        
-        .branch-name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .branch-city {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .footer {
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .branches-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-qr-section {
-                padding: 20px;
-            }
-            
-            .qr-title {
-                font-size: 24px;
-            }
-            
-            .qr-name {
-                font-size: 20px;
-            }
+            color: #666;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>فروع مركز اسطنبول للأزياء</h1>
-            <p>QR Code موحد لجميع فروعنا</p>
-        </div>
-        
-        <div class="main-qr-section">
-            <div class="qr-title">الباركود الرئيسي</div>
-            <div id="mainqrcode"></div>
-            <div class="qr-name">فروع مركز اسطنبول</div>
-            <p class="qr-instruction">امسح الباركود للوصول إلى جميع فروعنا</p>
-        </div>
-        
-        <div class="branches-section">
-            <h2>فروعنا المتاحة</h2>
-            <div class="branches-grid">
-                <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/" class="branch-card">
-                    <div class="branch-number">1</div>
-                    <div class="branch-name">مركز اسطنبول</div>
-                    <div class="branch-city">فرع الدوادمي</div>
-                </a>
-                
-                <a href="https://linktr.ee/istanbulsa?utm_source=linktree_profile_share" class="branch-card">
-                    <div class="branch-number">2</div>
-                    <div class="branch-name">مركز اسطنبول</div>
-                    <div class="branch-city">فرع الرياض</div>
-                </a>
-                
-                <a href="https://perfectbashar-dev.github.io/istanbul-alkharj/" class="branch-card">
-                    <div class="branch-number">3</div>
-                    <div class="branch-name">مركز اسطنبول</div>
-                    <div class="branch-city">فرع الخرج</div>
-                </a>
-                
-                <a href="https://linktr.ee/goldenpricesa1?utm_source=linktree_profile_share" class="branch-card">
-                    <div class="branch-number">4</div>
-                    <div class="branch-name">جولدن برايس</div>
-                    <div class="branch-city">للأسعار الذهبية</div>
-                </a>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>جميع الحقوق محفوظة © 2023 مركز اسطنبول للأزياء</p>
-        </div>
+        <h1>الباركود الرئيسي لفروع مركز اسطنبول</h1>
+        <div id="qrcode"></div>
+        <p class="instruction">امسح الباركود للوصول إلى قائمة الفروع</p>
     </div>
 
     <script>
-        // إنشاء QR Code للصفحة الحالية
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentUrl = window.location.href;
-            const qrcode = new QRCode(document.getElementById("mainqrcode"), {
-                text: currentUrl,
-                width: 250,
-                height: 250,
-                colorDark: "#001f3f",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
+        // إنشاء QR Code يشير إلى صفحة الفروع
+        const branchesPageUrl = window.location.href.replace(/index\.html$/, '') + 'branches.html';
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: branchesPageUrl,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
         });
     </script>
 </body>
