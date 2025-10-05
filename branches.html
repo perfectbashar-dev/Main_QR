@@ -33,15 +33,19 @@
             margin-bottom: 30px;
         }
         
-        h1 {
-            color: white;
-            margin-bottom: 10px;
-            font-size: 28px;
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin: 0 auto 15px;
+            object-fit: cover;
         }
         
         .subtitle {
             color: rgba(255,255,255,0.8);
             font-size: 18px;
+            margin-top: 10px;
         }
         
         .branches-list {
@@ -104,29 +108,34 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>فروع مركز اسطنبول</h1>
+            <!-- استبدل رابط الصورة برابط صورتك -->
+            <img src="https://i.ibb.co/ZzHYfRkk/IMG.jpg " alt="مركز اسطنبول" class="profile-img">
             <p class="subtitle">اختر الفرع الذي تريد زيارته</p>
         </div>
         
         <div class="branches-list">
-            <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/" class="branch-item">
-                <div class="branch-name">مركز اسطنبول الدوادمي</div>
-                <div class="branch-location">أحدث الأزياء والمستلزمات</div>
-            </a>
-            
+            <!-- الرياض أولاً -->
             <a href="https://linktr.ee/istanbulsa?utm_source=linktree_profile_share" class="branch-item">
                 <div class="branch-name">مركز اسطنبول الرياض</div>
                 <div class="branch-location">عروض حصرية وأسعار مميزة</div>
             </a>
             
-            <a href="https://perfectbashar-dev.github.io/istanbul-alkharj/" class="branch-item">
-                <div class="branch-name">مركز اسطنبول الخرج</div>
-                <div class="branch-location">جودة عالية وتنوع في المنتجات</div>
+            <!-- الدوادمي ثانياً -->
+            <a href="https://perfectbashar-dev.github.io/istanbulsa-fashion/" class="branch-item">
+                <div class="branch-name">مركز اسطنبول الدوادمي</div>
+                <div class="branch-location">أحدث الأزياء والمستلزمات</div>
             </a>
             
+            <!-- جولدن برايس ثالثاً -->
             <a href="https://linktr.ee/goldenpricesa1?utm_source=linktree_profile_share" class="branch-item">
                 <div class="branch-name">جولدن برايس</div>
                 <div class="branch-location">للأسعار الذهبية والعروض المميزة</div>
+            </a>
+            
+            <!-- الخرج رابعاً -->
+            <a href="https://perfectbashar-dev.github.io/istanbul-alkharj/" class="branch-item">
+                <div class="branch-name">مركز اسطنبول الخرج</div>
+                <div class="branch-location">جودة عالية وتنوع في المنتجات</div>
             </a>
         </div>
         
