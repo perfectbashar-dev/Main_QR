@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -44,24 +44,24 @@
         }
 
         .circle-1 {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             top: 10%;
             left: 10%;
             animation-delay: 0s;
         }
 
         .circle-2 {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             top: 60%;
             right: 10%;
             animation-delay: 2s;
         }
 
         .circle-3 {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             bottom: 20%;
             left: 20%;
             animation-delay: 4s;
@@ -73,27 +73,29 @@
                 opacity: 0.7;
             }
             50% {
-                transform: translateY(-20px) rotate(180deg);
+                transform: translateY(-15px) rotate(180deg);
                 opacity: 0.3;
             }
         }
         
         .container {
-            max-width: 600px;
+            max-width: 90%;
+            width: 100%;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
         
         .coming-soon-card {
-            background: rgba(0, 26, 51, 0.9);
-            padding: 50px 30px;
+            background: rgba(0, 26, 51, 0.95);
+            padding: 30px 20px;
             border-radius: 20px;
             border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
+            margin: 0 auto;
         }
 
         /* تأثير البريق */
@@ -119,8 +121,8 @@
         }
         
         .icon {
-            font-size: 100px;
-            margin-bottom: 30px;
+            font-size: 60px;
+            margin-bottom: 20px;
             animation: bounce 2s infinite, glow 2s infinite alternate;
             display: block;
         }
@@ -130,7 +132,7 @@
                 transform: translateY(0) scale(1);
             }
             50% {
-                transform: translateY(-20px) scale(1.1);
+                transform: translateY(-10px) scale(1.05);
             }
         }
 
@@ -139,16 +141,17 @@
                 filter: drop-shadow(0 0 5px rgba(255, 107, 0, 0.5));
             }
             to {
-                filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.8));
+                filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.8));
             }
         }
         
         h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #fff;
             animation: pulse 2s infinite, slideIn 1.5s ease-out;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
         }
 
         @keyframes pulse {
@@ -156,14 +159,14 @@
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -173,20 +176,21 @@
         
         .branch-name {
             color: #ff6b00;
-            font-size: 32px;
-            margin: 20px 0;
+            font-size: 24px;
+            margin: 15px 0;
             font-weight: bold;
             animation: colorChange 3s infinite alternate, fadeIn 2s ease-out;
+            line-height: 1.3;
         }
 
         @keyframes colorChange {
             0% {
                 color: #ff6b00;
-                text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+                text-shadow: 0 0 8px rgba(255, 107, 0, 0.5);
             }
             100% {
                 color: #ff8c00;
-                text-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+                text-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
             }
         }
 
@@ -200,17 +204,18 @@
         }
         
         p {
-            font-size: 20px;
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-            line-height: 1.8;
+            margin-bottom: 25px;
+            line-height: 1.6;
             animation: fadeInUp 2s ease-out 0.5s both;
+            padding: 0 10px;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -220,34 +225,34 @@
         
         .countdown {
             background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
+            padding: 20px 15px;
+            border-radius: 12px;
+            margin: 25px 0;
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeInUp 2s ease-out 1s both;
         }
         
         .countdown-text {
-            font-size: 18px;
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: bold;
         }
 
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+            border-radius: 3px;
             overflow: hidden;
-            margin: 15px 0;
+            margin: 12px 0;
         }
 
         .progress {
             width: 70%;
             height: 100%;
             background: linear-gradient(90deg, #ff6b00, #ff8c00);
-            border-radius: 4px;
+            border-radius: 3px;
             animation: progressAnimation 2s infinite alternate;
         }
 
@@ -262,7 +267,7 @@
         
         .button-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 2s ease-out 1.5s both;
@@ -270,47 +275,54 @@
         
         .back-link {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 12px 25px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             text-decoration: none;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s;
-            font-size: 16px;
+            font-size: 14px;
             backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
         }
         
         .back-link:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
         .home-link {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 12px 25px;
             background: linear-gradient(45deg, #ff6b00, #ff8c00);
             color: white;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
         }
         
         .home-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
             background: linear-gradient(45deg, #ff8c00, #ff6b00);
         }
         
         .footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+            font-size: 12px;
             animation: fadeIn 3s ease-out 2s both;
+            padding: 0 10px;
         }
 
         /* تأثيرات النص المتحرك */
@@ -323,7 +335,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-5px);
             }
         }
 
@@ -342,7 +354,178 @@
             }
             50% {
                 opacity: 1;
-                transform: scale(1.2);
+                transform: scale(1.1);
+            }
+        }
+
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+            
+            .coming-soon-card {
+                padding: 50px 40px;
+            }
+            
+            .icon {
+                font-size: 80px;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            
+            .branch-name {
+                font-size: 28px;
+                margin: 20px 0;
+            }
+            
+            p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            
+            .countdown {
+                padding: 25px 20px;
+                margin: 30px 0;
+            }
+            
+            .countdown-text {
+                font-size: 18px;
+            }
+            
+            .progress-bar {
+                height: 8px;
+                margin: 15px 0;
+            }
+            
+            .back-link, .home-link {
+                padding: 15px 30px;
+                font-size: 16px;
+                min-width: 160px;
+            }
+            
+            .footer {
+                font-size: 14px;
+                margin-top: 40px;
+            }
+            
+            .circle-1 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .circle-2 {
+                width: 150px;
+                height: 150px;
+            }
+
+            .circle-3 {
+                width: 80px;
+                height: 80px;
+            }
+            
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 0.7;
+                }
+                50% {
+                    transform: translateY(-20px) rotate(180deg);
+                    opacity: 0.3;
+                }
+            }
+            
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0) scale(1);
+                }
+                50% {
+                    transform: translateY(-15px) scale(1.1);
+                }
+            }
+            
+            @keyframes floatText {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+        }
+
+        /* تحسينات للشاشات الكبيرة جداً */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .coming-soon-card {
+                padding: 60px 50px;
+            }
+            
+            h1 {
+                font-size: 42px;
+            }
+            
+            .branch-name {
+                font-size: 32px;
+            }
+            
+            p {
+                font-size: 20px;
+            }
+        }
+
+        /* تحسينات للأجهزة المحمولة الصغيرة */
+        @media (max-width: 360px) {
+            body {
+                padding: 15px;
+            }
+            
+            .coming-soon-card {
+                padding: 25px 15px;
+            }
+            
+            .icon {
+                font-size: 50px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .branch-name {
+                font-size: 20px;
+            }
+            
+            p {
+                font-size: 14px;
+            }
+            
+            .button-group {
+                gap: 8px;
+            }
+            
+            .back-link, .home-link {
+                padding: 10px 15px;
+                font-size: 13px;
+                min-width: 120px;
+            }
+        }
+
+        /* تحسين الأداء على الأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .coming-soon-card::before {
+                animation-duration: 4s;
+            }
+            
+            .floating-circle {
+                animation-duration: 8s;
             }
         }
     </style>
@@ -375,8 +558,8 @@
             </div>
             
             <div class="button-group">
-                <a href="branches.html" class="back-link">↩ العودة إلى قائمة الفروع</a>
-                <a href="index.html" class="home-link">🏠 الصفحة الرئيسية</a>
+                <a href="branches.html" class="back-link">↩ العودة إلى الفروع</a>
+                <a href="index.html" class="home-link">🏠 الرئيسية</a>
             </div>
         </div>
         
@@ -400,7 +583,7 @@
             
             branchInfo.innerHTML = `
                 <div class="branch-name floating-text">فرع ${branchName}</div>
-                <p> نعمل على افتتاح فرع ${branchName} قريبًا ليقدم لكم أجود المنتجات وأفضل العروض</p>
+                <p>نحن نعمل على افتتاح فرع ${branchName} قريبًا ليقدم لكم أجود المنتجات وأفضل العروض</p>
             `;
 
             // إضافة النجوم المتلألئة
@@ -410,14 +593,14 @@
         // إنشاء النجوم المتلألئة
         function createStars() {
             const bgAnimation = document.querySelector('.bg-animation');
-            const starCount = 20;
+            const starCount = window.innerWidth < 768 ? 15 : 20;
             
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 
                 // مواقع عشوائية
-                const size = Math.random() * 3 + 1;
+                const size = Math.random() * 2 + 1;
                 const left = Math.random() * 100;
                 const top = Math.random() * 100;
                 const delay = Math.random() * 2;
