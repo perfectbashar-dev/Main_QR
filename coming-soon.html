@@ -26,6 +26,56 @@
             position: relative;
         }
 
+        /* تأثير الظهور والاختفاء للنصوص */
+.text-container {
+    min-height: 120px;
+    position: relative;
+}
+
+.blinking-text {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #fff;
+    animation: blink 3s infinite, slideIn 1.5s ease-out;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.branch-container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+}
+
+.blinking-branch {
+    color: #ff6b00;
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    animation: blink 3s infinite 1.5s, colorChange 3s infinite alternate;
+    line-height: 1.3;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    25%, 75% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
         /* تأثيرات الخلفية المتحركة */
         .bg-animation {
             position: absolute;
@@ -541,10 +591,12 @@
     <div class="container">
         <div class="coming-soon-card">
             <div class="icon">🎊</div>
-            <h1 class="floating-text">ترقبوا الافتتاح</h1>
-            
-            <div id="branchInfo">
-                <!-- سيتم عرض اسم الفرع هنا بواسطة JavaScript -->
+            <!-- النص الرئيسي مع تأثير الظهور والاختفاء -->
+<div class="text-container">
+    <h1 class="blinking-text">ترقبوا الافتتاح</h1>
+    <div id="branchInfo" class="branch-container">
+        <!-- سيتم عرض اسم الفرع هنا بواسطة JavaScript -->
+    </div>
             </div>
             
             <p>نعمل على تجهيز الفرع بأحدث التصاميم وأجود المنتجات لتقديم أفضل تجربة تسوق لكم. انتظرونا.</p>
@@ -554,7 +606,7 @@
                 <div class="progress-bar">
                     <div class="progress"></div>
                 </div>
-                <div class="countdown-text">قريبًا إن شاء الله</div>
+                <div class="countdown-text">قريبًا</div>
             </div>
             
             <div class="button-group">
@@ -582,10 +634,8 @@
             const branchInfo = document.getElementById('branchInfo');
             
             branchInfo.innerHTML = `
-                <div class="branch-name floating-text">فرع ${branchName}</div>
-                <p>نحن نعمل على افتتاح فرع ${branchName} قريبًا ليقدم لكم أجود المنتجات وأفضل العروض</p>
-            `;
-
+    <div class="blinking-branch">فرع ${branchName}</div>
+`;
             // إضافة النجوم المتلألئة
             createStars();
         });
