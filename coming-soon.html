@@ -61,6 +61,16 @@
     line-height: 1.3;
 }
 
+        .branch-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 10px;
+    line-height: 1.6;
+    animation: fadeInUp 2s ease-out 2s both;
+    padding: 0 10px;
+    font-weight: normal;
+}
+
 @keyframes blink {
     0%, 50% {
         opacity: 1;
@@ -599,7 +609,7 @@
     </div>
             </div>
             
-            <p>نعمل على تجهيز الفرع بأحدث التصاميم وأجود المنتجات لتقديم أفضل تجربة تسوق لكم. انتظرونا.</p>
+            <p>. .</p>
             
             <div class="countdown">
                 <div class="countdown-text">جاري التجهيز للافتتاح</div>
@@ -628,17 +638,30 @@
             return branch || 'الجديد';
         }
         
-        // عرض اسم الفرع في الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            const branchName = getBranchName();
-            const branchInfo = document.getElementById('branchInfo');
-            
-            branchInfo.innerHTML = `
-    <div class="blinking-branch">فرع ${branchName}</div>
-`;
-            // إضافة النجوم المتلألئة
-            createStars();
-        });
+        // عرض اسم الفرع والنص المخصص في الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    const branchName = getBranchName();
+    const branchInfo = document.getElementById('branchInfo');
+    
+    let branchDescription = '';
+    
+    // تحديد النص بناءً على اسم الفرع
+    if (branchName.includes('القصيم')) {
+        branchDescription = 'ترقبوا الافتتاح الكبير لفرعنا الجديد القصيم بريده مقابل كارفور عروض مغريه وهدايا قيمة';
+    } else if (branchName.includes('العريجاء')) {
+        branchDescription = 'قريبا الافتتاح لفرعنا الجديد غرب الرياض طريق المدينة المنورة عروض مغرية وجوائز وهدايا قيمة';
+    } else {
+        branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
+    }
+    
+    branchInfo.innerHTML = `
+        <div class="blinking-branch">فرع ${branchName}</div>
+        <p class="branch-description">${branchDescription}</p>
+    `;
+
+    // إضافة النجوم المتلألئة
+    createStars();
+});
 
         // إنشاء النجوم المتلألئة
         function createStars() {
