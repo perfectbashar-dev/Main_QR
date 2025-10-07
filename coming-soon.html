@@ -28,8 +28,9 @@
 
         /* تأثير الظهور والاختفاء للنصوص */
 .text-container {
-    min-height: 120px;
+    min-height: 150px;
     position: relative;
+    margin-bottom:50px;
 }
 
 .blinking-text {
@@ -65,11 +66,12 @@
     font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
     margin-top: 10px;
-    margin-bottom:100px
     line-height: 1.6;
     animation: fadeInUp 2s ease-out 2s both;
-    padding: 0 10px;
+    padding: 0 10px 30px 10px; /* ← عدل هذا السطر */
     font-weight: normal;
+    position: relative; /* ← أضف هذا */
+    z-index: 2; /* ← أضف هذا */
 }
 
 @keyframes blink {
