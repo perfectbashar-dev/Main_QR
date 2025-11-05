@@ -62,7 +62,6 @@
             line-height: 1.3;
         }
 
-        /* النص الجديد تحت اسم الفرع */
         .branch-date {
             color: #ffd700;
             font-size: 20px;
@@ -653,7 +652,8 @@
     <div class="container">
         <div class="coming-soon-card">
             <!-- الصورة الجديدة بدلاً من الأيقونة -->
-            <img id="branchImage" src=" " alt="مركز اسطنبول" class="custom-image" style="display: none;">
+            <img id="branchImage" src="" alt="مركز اسطنبول" class="custom-image" style="display: none;">
+            <div id="defaultIcon" class="icon">🎊</div>
             
             <!-- النص الرئيسي مع تأثير الظهور والاختفاء -->
             <div class="text-container">
@@ -707,10 +707,8 @@
             // تحديد النص بناءً على اسم الفرع
             if (branchName.includes('القصيم')) {
                 // تغيير العنوان الرئيسي
-                mainTitle.textContent = '
-                  موعدنا الجمعه بتأريخ 07/11/2025 الساعه 6 مساء  خصم 15% على الفاتوره لمدة 5 ايام';
-                 
-                branchDateText = '';
+                mainTitle.textContent = 'موعدنا الجمعه كونو معنا';
+                branchDateText = '07/11/2025';
                 branchDescription = 'موعدنا الجمعه 07/11/2025 الساعه 6 مساء <br>خصم 15% على الفاتوره لمدة 5 ايام';
                 
                 // إظهار الصورة وإخفاء الأيقونة
@@ -727,11 +725,11 @@
                 branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
             }
             
-            branchInfo.innerHTML = `
-                <div class="blinking-branch">فرع ${branchName}</div>
-                ${branchDateText ? `<div class="branch-date">${branchDateText}</div>` : ''}
-                <p class="branch-description">${branchDescription}</p>
-            `;
+           // branchInfo.innerHTML = `
+               // <div class="blinking-branch">فرع ${branchName}</div>
+              //  ${branchDateText ? `<div class="branch-date">${branchDateText}</div>` : ''}
+              //  <p class="branch-description">${branchDescription}</p>
+          //  `;
 
             // إضافة النجوم المتلألئة فقط إذا لم يكن فرع القصيم
             if (!branchName.includes('القصيم')) {
