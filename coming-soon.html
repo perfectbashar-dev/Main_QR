@@ -137,62 +137,20 @@
 
         /* تصميم جديد لتاريخ الافتتاح */
         .event-info {
-            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 215, 0, 0.2));
-            padding: 25px 15px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            animation: fadeInUp 2s ease-out 1s both;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+    padding: 20px 15px; /* قللنا الحشوة */
+    margin: 20px 0; /* قللنا المسافة */
+    border-radius: 15px; /* قللنا الزوايا */
+}
 
-        .event-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b00, #ffd700, #ff6b00);
-            animation: shimmer 3s infinite linear;
-        }
+.event-date {
+    font-size: 24px; /* قللنا حجم الخط */
+    margin-bottom: 10px; /* قللنا المسافة */
+}
 
-        .event-date {
-            font-size: 26px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #ffd700;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            position: relative;
-            display: inline-block;
-            padding: 0 15px;
-        }
-
-        .event-date::before, .event-date::after {
-            content: '✦';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ff6b00;
-            font-size: 20px;
-        }
-
-        .event-date::before {
-            left: -10px;
-        }
-
-        .event-date::after {
-            right: -10px;
-        }
-
-        .event-time {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #fff;
-            font-weight: bold;
-        }
+.event-time {
+    font-size: 20px; /* قللنا حجم الخط */
+    margin-bottom: 10px; /* قللنا المسافة */
+}
 
         /* تصميم جديد للعروض */
         .offer-section {
