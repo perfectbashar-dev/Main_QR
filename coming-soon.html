@@ -137,54 +137,131 @@
 
         /* تصميم جديد لتاريخ الافتتاح */
         .event-info {
-    padding: 20px 15px; /* قللنا الحشوة */
-    margin: 20px 0; /* قللنا المسافة */
-    border-radius: 15px; /* قللنا الزوايا */
-}
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 215, 0, 0.2));
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 2s ease-out 1s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-.event-date {
-    font-size: 24px; /* قللنا حجم الخط */
-    margin-bottom: 10px; /* قللنا المسافة */
-}
+        .event-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b00, #ffd700, #ff6b00);
+            animation: shimmer 3s infinite linear;
+        }
 
-.event-time {
-    font-size: 20px; /* قللنا حجم الخط */
-    margin-bottom: 10px; /* قللنا المسافة */
-}
+        .event-date {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .event-date::before, .event-date::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6b00;
+            font-size: 20px;
+        }
+
+        .event-date::before {
+            left: -10px;
+        }
+
+        .event-date::after {
+            right: -10px;
+        }
+
+        .event-time {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: bold;
+        }
 
         /* تصميم جديد للعروض */
         .offer-section {
-    padding: 25px 20px; /* قللنا الحشوة */
-    margin: 20px 0; /* قللنا المسافة */
-    border-radius: 20px; /* قللنا الزوايا */
-}
+            margin: 20px 0;
+            padding: 25px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 215, 0, 0.15));
+            border: 2px solid rgba(255, 107, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s infinite;
+        }
 
-.offer-title {
-    font-size: 22px; /* قللنا حجم الخط */
-    margin-bottom: 15px; /* قللنا المسافة */
-}
+        .offer-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: offerShine 4s infinite;
+        }
 
-.offer-percentage {
-    font-size: 45px; /* قللنا حجم الخط */
-    margin: 10px 0; /* قللنا المسافة */
-}
+        .offer-title {
+            font-size: 22px;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
 
-.offer-details {
-    font-size: 20px; /* قللنا حجم الخط */
-}
+        .offer-details {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: bold;
+            position: relative;
+        }
 
-.offer-duration {
-    font-size: 16px; /* قللنا حجم الخط */
-    padding: 8px 20px; /* قللنا الحشوة */
-    margin-top: 10px; /* قللنا المسافة */
-}
+        .offer-percentage {
+            font-size: 45px;
+            color: #ff6b00;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+            margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .offer-duration {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            position: relative;
+        }
 
         .preparation-box {
             background: rgba(0, 0, 0, 0.3);
             border: 2px solid #ff6b00;
             border-radius: 15px;
-            padding: 20px;
-            margin: 25px 0;
+            padding: 15px;
+            margin: 20px 0;
             animation: pulse 2s infinite;
         }
 
@@ -196,12 +273,12 @@
         }
 
         .preparation-icon {
-            font-size: 40px;
+            font-size: 30px;
             animation: bounce 2s infinite;
         }
 
         .preparation-text {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             color: #ffd700;
         }
@@ -270,16 +347,16 @@
         /* زر صور الافتتاح الجديد */
         .gallery-button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 25px;
             background: linear-gradient(135deg, #ff6b00, #ff8c00);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             transition: all 0.3s;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
-            margin: 20px 0;
+            margin: 15px 0;
             border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
@@ -318,7 +395,7 @@
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 2s ease-out 1.5s both;
-            margin-top: 25px;
+            margin-top: 20px;
         }
         
         .back-link {
@@ -371,7 +448,7 @@
         
         .home-link {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: linear-gradient(45deg, #ff6b00, #ff8c00);
             color: white;
             text-decoration: none;
@@ -615,7 +692,7 @@
             }
             
             .main-title {
-                font-size: 20px;
+                font-size: 26px;
             }
             
             .branch-name {
@@ -682,17 +759,17 @@
             
             <!-- معلومات الحدث مع تصميم محسن -->
             <div class="event-info">
-    <div class="event-date">🗓️ الجمعة 7 نوفمبر 2025</div>
-    <div class="event-time">⏰ الساعة 6:00 مساءً</div>
-</div>
+                <div class="event-date">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥</div>
+                <div class="event-time">⏰ الساعة ٦:٠٠ مساءً</div>
+            </div>
             
             <!-- العروض بتصميم خرافي -->
             <div class="offer-section">
-    <div class="offer-title">🎊 عرض الافتتاح الكبير 🎊</div>
-    <div class="offer-percentage">15% خصم</div>
-    <div class="offer-details">خصم حصري على جميع المشتريات</div>
-    <div class="offer-duration">لمدة 5 أيام فقط من الافتتاح</div>
-</div>
+                <div class="offer-title">عرض الافتتاح الحصري</div>
+                <div class="offer-percentage">١٥٪</div>
+                <div class="offer-details">خصم على الفاتورة</div>
+                <div class="offer-duration">لمدة ٥ أيام من تاريخ الافتتاح</div>
+            </div>
             
             <!-- زر صور الافتتاح -->
             <a href="#" class="gallery-button">
