@@ -164,60 +164,55 @@
             line-height: 1.3;
         }
 
-        .event-info {
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 215, 0, 0.2));
-    padding: 25px 15px;
-    border-radius: 15px;
+        /* تصميم خرافي لتاريخ الافتتاح */
+.event-info {
+    background: linear-gradient(135deg, #ff6b00, #ff8c00, #ffd700);
+    padding: 30px 20px;
+    border-radius: 20px;
     margin: 25px 0;
-    border: 2px solid rgba(255, 215, 0, 0.3);
-    animation: fadeInUp 2s ease-out 1s both;
+    border: 3px solid rgba(255, 255, 255, 0.3);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+    animation: glow 2s infinite alternate;
 }
 
 .event-info::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6b00, #ffd700, #ff6b00);
-    animation: shimmer 3s infinite linear;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
 }
 
 .event-date {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffd700;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+    color: #001f3f;
+    text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
     position: relative;
-    display: inline-block;
-    padding: 0 15px;
 }
 
-.event-date::before, .event-date::after {
-    content: '✦';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ff6b00;
-    font-size: 20px;
+.event-time {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #001f3f;
+    font-weight: bold;
+    position: relative;
 }
 
-.event-date::before {
-    left: -10px;
-}
-
-.event-date::after {
-    right: -10px;
-}
-
-@keyframes shimmer {
-    0% { background-position: -200px 0; }
-    100% { background-position: 200px 0; }
+@keyframes glow {
+    0% {
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 15px 40px rgba(255, 107, 0, 0.7);
+    }
 }
 
         .preparation-box {
@@ -285,75 +280,92 @@
     50% { transform: translateY(-10px); }
 }
 
-        .offer-section {
+        /* تصميم خرافي للعروض */
+.offer-section {
     margin: 25px 0;
-    padding: 25px 20px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 215, 0, 0.15));
-    border: 2px solid rgba(255, 107, 0, 0.4);
+    padding: 35px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #001f3f, #003366, #001f3f);
+    border: 3px solid #ffd700;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    animation: pulse 3s infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: float 3s ease-in-out infinite;
 }
 
 .offer-section::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-    transform: rotate(45deg);
-    animation: offerShine 4s infinite;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    animation: sparkle 4s infinite linear;
 }
 
 .offer-title {
-    font-size: 26px;
+    font-size: 28px;
     color: #ffd700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: bold;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
     position: relative;
 }
 
+.offer-percentage {
+    font-size: 60px;
+    color: #ff6b00;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.8);
+    margin: 15px 0;
+    animation: pulse 1.5s infinite;
+    background: linear-gradient(45deg, #ff6b00, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .offer-details {
-    font-size: 22px;
+    font-size: 24px;
     color: #fff;
     margin-bottom: 10px;
     font-weight: bold;
     position: relative;
 }
 
-.offer-percentage {
-    font-size: 40px;
-    color: #ff6b00;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
-    margin: 10px 0;
-    animation: pulse 2s infinite;
-}
-
 .offer-duration {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    background: rgba(0, 0, 0, 0.3);
-    padding: 8px 15px;
-    border-radius: 20px;
+    font-size: 20px;
+    color: #ffd700;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 25px;
+    border-radius: 30px;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 15px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
     position: relative;
 }
 
-@keyframes offerShine {
-    0% {
-        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
     }
-    100% {
-        transform: translateX(100%) translateY(100%) rotate(45deg);
+    50% {
+        transform: translateY(-10px);
     }
 }
+
+@keyframes sparkle {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+
 
         .preparation-text {
             font-size: 18px;
@@ -575,6 +587,24 @@
             }
         }
 
+        @keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -733,8 +763,10 @@
     <div class="container">
         <div class="coming-soon-card">
               <div class="header-image">
-            <img src="https://i.ibb.co/F4hFcPxh/IMG-20251107-WA0000.jpg" alt="افتتاح فرع القصيم">
-        </div>
+            <img src="<div class="header-image">
+    <div class="header-image">
+    <img src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="افتتاح فرع القصيم">
+</div>
             <!-- العنوان الرئيسي -->
             <h1 class="main-title"> كونوا معنا في الإفتتاح   </h1>
             
@@ -743,16 +775,17 @@
             
             <!-- معلومات الحدث -->
             <div class="event-info">
-                <div class="event-date">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥</div>
-                <div class="event-time">⏰ الساعة ٦:٠٠ مساءً</div>
-            </div>
+    <div class="event-date">🗓️ الجمعة 7 نوفمبر 2025</div>
+    <div class="event-time">⏰ الساعة 6:00 مساءً</div>
+</div>
             
             <!-- العروض -->
             <div class="offer-section">
-                <div class="offer-title">خصم ١٥٪ على الفاتورة</div>
-                <div class="offer-details">لمدة ٥ أيام</div>
-                <div class="offer-duration">من تاريخ الافتتاح</div>
-            </div>
+    <div class="offer-title">🎊 عرض الافتتاح الكبير 🎊</div>
+    <div class="offer-percentage">15% خصم</div>
+    <div class="offer-details">خصم حصري على جميع المشتريات</div>
+    <div class="offer-duration">لمدة 5 أيام فقط من الافتتاح</div>
+</div>
             
             <!-- مربع جاري التجهيز -->
 <div class="preparation-box">
