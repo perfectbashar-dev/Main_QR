@@ -154,65 +154,30 @@
 
         /* تصميم جديد للعروض */
         .offer-section {
-            margin: 25px 0;
-            padding: 25px 20px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 215, 0, 0.15));
-            border: 2px solid rgba(255, 107, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            animation: pulse 3s infinite;
-        }
+    padding: 25px 20px; /* قللنا الحشوة */
+    margin: 20px 0; /* قللنا المسافة */
+    border-radius: 20px; /* قللنا الزوايا */
+}
 
-        .offer-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: offerShine 4s infinite;
-        }
+.offer-title {
+    font-size: 22px; /* قللنا حجم الخط */
+    margin-bottom: 15px; /* قللنا المسافة */
+}
 
-        .offer-title {
-            font-size: 26px;
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
+.offer-percentage {
+    font-size: 45px; /* قللنا حجم الخط */
+    margin: 10px 0; /* قللنا المسافة */
+}
 
-        .offer-details {
-            font-size: 22px;
-            color: #fff;
-            margin-bottom: 10px;
-            font-weight: bold;
-            position: relative;
-        }
+.offer-details {
+    font-size: 20px; /* قللنا حجم الخط */
+}
 
-        .offer-percentage {
-            font-size: 40px;
-            color: #ff6b00;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
-            margin: 10px 0;
-            animation: pulse 2s infinite;
-        }
-
-        .offer-duration {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            position: relative;
-        }
+.offer-duration {
+    font-size: 16px; /* قللنا حجم الخط */
+    padding: 8px 20px; /* قللنا الحشوة */
+    margin-top: 10px; /* قللنا المسافة */
+}
 
         .preparation-box {
             background: rgba(0, 0, 0, 0.3);
