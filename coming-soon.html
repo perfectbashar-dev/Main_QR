@@ -59,29 +59,30 @@
             animation: shine 3s infinite;
         }
          
+/* تصميم جديد للصورة العلوية بدون إطار */
 .header-image {
     width: 100%;
-    max-width: 600px;
-    height: 300px; /* زيادة الارتفاع */
+    max-width: 100%;
+    height: 400px;
     margin: 0 auto 30px;
-    border-radius: 15px;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-    border: 3px solid #ff6b00;
-    animation: imageGlow 3s infinite alternate;
+    box-shadow: none;
+    border: none;
     position: relative;
+    animation: none;
 }
 
 .header-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* لتغطية المساحة كاملة */
-    object-position: center; /* لتركيز الصورة في المنتصف */
-    transition: transform 0.5s ease;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s ease;
     display: block;
+    filter: brightness(0.9);
 }
 
-/* لضمان ظهور الصورة بوضوح */
 .header-image::after {
     content: '';
     position: absolute;
@@ -91,20 +92,26 @@
     bottom: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0.1) 0%,
-        rgba(0,0,0,0) 80%
+        rgba(0, 31, 63, 0.3) 0%,
+        rgba(0, 31, 63, 0.7) 100%
     );
     pointer-events: none;
 }
 
-@keyframes imageGlow {
-    0% {
-        box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
-        transform: translateY(0);
+.header-image:hover img {
+    transform: scale(1.05);
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .header-image {
+        height: 300px;
     }
-    100% {
-        box-shadow: 0 12px 35px rgba(255, 107, 0, 0.8);
-        transform: translateY(-5px);
+}
+
+@media (max-width: 480px) {
+    .header-image {
+        height: 250px;
     }
 }
 
