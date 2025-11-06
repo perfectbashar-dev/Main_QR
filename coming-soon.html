@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -31,7 +30,7 @@
         .text-container {
             min-height: 150px;
             position: relative;
-            margin-bottom:50px;
+            margin-bottom: 50px;
         }
 
         .blinking-text {
@@ -63,13 +62,39 @@
             line-height: 1.3;
         }
 
-        .branch-date {
-            color: #ffd700;
+        /* التصميم الجديد للتاريخ والعرض */
+        .gradient-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ff6b00, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 10px 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        .date-elegant {
             font-size: 20px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #ff6b00;
             margin: 10px 0;
             font-weight: bold;
-            animation: glow 2s infinite alternate;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .promo-beautiful {
+            font-size: 18px;
+            color: #fff;
+            margin: 15px 0;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b00, #ff8c00);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            animation: pulse 2s infinite;
         }
 
         .branch-description {
@@ -475,8 +500,16 @@
                 margin: 20px 0;
             }
             
-            .branch-date {
-                font-size: 24px;
+            .gradient-text {
+                font-size: 28px;
+            }
+            
+            .date-elegant {
+                font-size: 22px;
+            }
+            
+            .promo-beautiful {
+                font-size: 20px;
             }
             
             p {
@@ -529,58 +562,6 @@
                 width: 80px;
                 height: 80px;
             }
-            
-            @keyframes float {
-                0%, 100% {
-                    transform: translateY(0) rotate(0deg);
-                    opacity: 0.7;
-                }
-                50% {
-                    transform: translateY(-20px) rotate(180deg);
-                    opacity: 0.3;
-                }
-            }
-            
-            @keyframes bounce {
-                0%, 100% {
-                    transform: translateY(0) scale(1);
-                }
-                50% {
-                    transform: translateY(-15px) scale(1.1);
-                }
-            }
-            
-            @keyframes floatText {
-                0%, 100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-8px);
-                }
-            }
-        }
-
-        /* تحسينات للشاشات الكبيرة جداً */
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 700px;
-            }
-            
-            .coming-soon-card {
-                padding: 60px 50px;
-            }
-            
-            h1 {
-                font-size: 42px;
-            }
-            
-            .branch-name {
-                font-size: 32px;
-            }
-            
-            p {
-                font-size: 20px;
-            }
         }
 
         /* تحسينات للأجهزة المحمولة الصغيرة */
@@ -611,8 +592,16 @@
                 font-size: 20px;
             }
             
-            .branch-date {
+            .gradient-text {
+                font-size: 20px;
+            }
+            
+            .date-elegant {
                 font-size: 18px;
+            }
+            
+            .promo-beautiful {
+                font-size: 16px;
             }
             
             p {
@@ -629,17 +618,6 @@
                 min-width: 120px;
             }
         }
-
-        /* تحسين الأداء على الأجهزة المحمولة */
-        @media (max-width: 768px) {
-            .coming-soon-card::before {
-                animation-duration: 4s;
-            }
-            
-            .floating-circle {
-                animation-duration: 8s;
-            }
-        }
     </style>
 </head>
 <body>
@@ -653,7 +631,7 @@
     <div class="container">
         <div class="coming-soon-card">
             <!-- الصورة الجديدة بدلاً من الأيقونة -->
-            <img id="branchImage" src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg " alt="مركز اسطنبول" class="custom-image" style="display: none;">
+            <img id="branchImage" src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="مركز اسطنبول" class="custom-image" style="display: none;">
             <div id="defaultIcon" class="icon">🎊</div>
             
             <!-- النص الرئيسي مع تأثير الظهور والاختفاء -->
@@ -664,7 +642,6 @@
                 </div>
             </div>
 
-            <!-- أضف هذا السطر هنا -->
             <div class="custom-spacer"></div>
 
             <div class="countdown">
@@ -695,53 +672,57 @@
         }
         
         // عرض اسم الفرع والنص المخصص في الصفحة
-       document.addEventListener('DOMContentLoaded', function() {
-           const branchName = getBranchName();
-           const branchInfo = document.getElementById('branchInfo');
-           const mainTitle = document.getElementById('mainTitle');
-          //  const branchImage = document.getElementById('branchImage');
-          //  const defaultIcon = document.getElementById('defaultIcon');
+        document.addEventListener('DOMContentLoaded', function() {
+            const branchName = getBranchName();
+            const branchInfo = document.getElementById('branchInfo');
+            const mainTitle = document.getElementById('mainTitle');
+            const branchImage = document.getElementById('branchImage');
+            const defaultIcon = document.getElementById('defaultIcon');
             
             let branchDescription = '';
-           let branchDateText = '';
             
             // تحديد النص بناءً على اسم الفرع
-          //  if (branchName.includes('القصيم')) {
+            if (branchName.includes('القصيم')) {
                 // تغيير العنوان الرئيسي
-               // mainTitle.textContent = ' موعدنا الجمعه الساعه 6 مساء  خصم 15% على الفاتوره لمدة 5 ايام';
-                 
-              //  branchDateText = '07/11/2025';
-            //    branchDescription = 'موعدنا الجمعه الساعه 6 مساء <br>خصم 15% على الفاتوره لمدة 5 ايام';
+                mainTitle.textContent = 'موعدنا الجمعه كونو معنا';
+                
+                branchDescription = 'موعدنا الجمعه 07/11/2025 الساعه 6 مساء <br>خصم 15% على الفاتوره لمدة 5 ايام';
                 
                 // إظهار الصورة وإخفاء الأيقونة
-                branchImage.src = 'https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg';
                 branchImage.style.display = 'block';
                 defaultIcon.style.display = 'none';
                 
                 // إخفاء الفقاعات
                 document.querySelector('.bg-animation').style.display = 'none';
                 
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <div class="gradient-text">موعدنا الجمعه كونو معنا</div>
+                    <div class="date-elegant">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥ ⏰ ٦:٠٠ مساءً</div>
+                    <div class="promo-beautiful">
+                        خصم ١٥٪ على الفاتورة<br>
+                        📅 لمدة ٥ أيام
+                    </div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
             } else if (branchName.includes('العريجاء')) {
                 branchDescription = 'قريبا الافتتاح لفرعنا الجديد غرب الرياض طريق المدينة المنورة عروض مغرية وجوائز وهدايا قيمة';
+                
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
+                createStars();
             } else {
                 branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
-            }
-            
-           branchInfo.innerHTML = `
-    <div class="blinking-branch">فرع ${branchName}</div>
-    ${branchDateText ? `
-        <div class="gradient-text">موعدنا الجمعه كونو معنا</div>
-        <div class="date-elegant">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥ ⏰ ٦:٠٠ مساءً</div>
-        <div class="promo-beautiful">
-            خصم ١٥٪ على الفاتورة<br>
-            📅 لمدة ٥ أيام
-        </div>
-    ` : ''}
-    <p class="branch-description">${branchDescription}</p>
-`;
-
-            // إضافة النجوم المتلألئة فقط إذا لم يكن فرع القصيم
-            if (!branchName.includes('القصيم')) {
+                
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
                 createStars();
             }
         });
