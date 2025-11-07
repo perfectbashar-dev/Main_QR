@@ -319,6 +319,81 @@
             font-weight: bold;
         }
 
+        .bubbles-container {
+    width: 100%;
+    height: 250px;
+    margin: 0 auto 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble {
+    position: absolute;
+    font-size: 40px;
+    background: rgba(255, 107, 0, 0.2);
+    border: 2px solid #ff6b00;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatBubble 6s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+.bubble-1 {
+    animation-delay: 0s;
+    top: 20%;
+    left: 20%;
+}
+
+.bubble-2 {
+    animation-delay: 1s;
+    top: 60%;
+    left: 70%;
+}
+
+.bubble-3 {
+    animation-delay: 2s;
+    top: 40%;
+    left: 50%;
+}
+
+.bubble-4 {
+    animation-delay: 3s;
+    top: 70%;
+    left: 30%;
+}
+
+.bubble-5 {
+    animation-delay: 4s;
+    top: 30%;
+    left: 80%;
+}
+
+@keyframes floatBubble {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg) scale(1.1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(-15px) rotate(270deg) scale(1.05);
+        opacity: 0.9;
+    }
+}
+
         /* تأثيرات الحركة */
         @keyframes progressAnimation {
             0% { width: 65%; }
@@ -619,9 +694,14 @@
 
     <div class="container">
         <div class="coming-soon-card">
-            <div class="header-image">
-                <img src="رابط_صورة_العريجاء" alt="فرع العريجاء قريباً">
-            </div>
+            <!-- بدل الصورة بفقاعات متحركة -->
+<div class="bubbles-container">
+    <div class="bubble bubble-1">🚧</div>
+    <div class="bubble bubble-2">⏳</div>
+    <div class="bubble bubble-3">🛠️</div>
+    <div class="bubble bubble-4">🔧</div>
+    <div class="bubble bubble-5">🏗️</div>
+</div>
             
             <!-- العنوان الرئيسي -->
             <h1 class="main-title">فرع العريجاء قريباً</h1>
