@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>افتتاح فرع القصيم - مركز اسطنبول</title>
+    <title>ترقبوا الافتتاح - مركز اسطنبول</title>
     <style>
         * {
             margin: 0;
@@ -26,486 +26,102 @@
             position: relative;
         }
 
-        .container {
-            max-width: 90%;
-            width: 100%;
-            margin: 0 auto;
+        /* تأثير الظهور والاختفاء للنصوص */
+        .text-container {
+            min-height: 150px;
             position: relative;
-            z-index: 1;
-        }
-        
-        .coming-soon-card {
-            background: rgba(0, 26, 51, 0.95);
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            margin: 0 auto;
+            margin-bottom: 50px;
         }
 
-        /* تأثير البريق */
-        .coming-soon-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-         
-        .header-image {
-            width: 100%;
-            max-width: 600px;
-            height: 250px;
-            margin: 0 auto 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            border: 3px solid #ff6b00;
-            animation: imageGlow 3s infinite alternate;
-            position: relative;
-        }
-
-        .header-image img {
-            width: 100%;
-            height: 100%;
-            filter: brightness(0.95);
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s ease;
-            display: block;
-        }
-
-        .header-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(0,0,0,0.1) 0%,
-                rgba(0,0,0,0) 80%
-            );
-            pointer-events: none;
-        }
-
-        @keyframes imageGlow {
-            0% {
-                box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
-                transform: translateY(0);
-            }
-            100% {
-                box-shadow: 0 12px 35px rgba(255, 107, 0, 0.8);
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        /* التصميم الجديد بناءً على الصورة */
-        .main-title {
-            font-size: 26px;
+        .blinking-text {
+            font-size: 28px;
             margin-bottom: 15px;
-            padding: 0 10px;
             color: #fff;
-            animation: pulse 2s infinite, slideIn 1.5s ease-out;
+            animation: blink 3s infinite, slideIn 1.5s ease-out;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             line-height: 1.3;
-            white-space: nowrap; /* يمنع تقسيم النص لأسطر */
-           overflow: hidden; /* يخفي النص الزائد */
-           text-overflow: ellipsis; /* يضيف ... إذا كان النص طويل */
-          
-
-        }
-
-        .branch-name {
-            color: #ff6b00;
-            font-size: 26px;
-            margin: 15px 0;
-            font-weight: bold;
-            animation: colorChange 3s infinite alternate, fadeIn 2s ease-out;
-            line-height: 1.3;
-        }
-
-        /* تصميم جديد لتاريخ الافتتاح */
-        .event-info {
-            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 215, 0, 0.2));
-            padding: 20px 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            animation: fadeInUp 2s ease-out 1s both;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .event-info::before {
-            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff6b00, #ffd700, #ff6b00);
-            animation: shimmer 3s infinite linear;
         }
 
-        .event-date {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffd700;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: relative;
-    display: inline-block;
-    padding: 0 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: auto;
-    max-width: 100%;
-}
-
-        .event-date::before, .event-date::after {
-            content: '✦';
+        .branch-container {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 60px;
+            left: 0;
+            right: 0;
+        }
+
+        .blinking-branch {
             color: #ff6b00;
-            font-size: 20px;
-        }
-
-        .event-date::before {
-            left: -10px;
-        }
-
-        .event-date::after {
-            right: -10px;
-        }
-
-        .event-time {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #fff;
+            font-size: 24px;
+            margin: 0;
             font-weight: bold;
+            animation: blink 3s infinite 1.5s, colorChange 3s infinite alternate;
+            line-height: 1.3;
         }
 
-        /* تصميم جديد للعروض */
-        .offer-section {
-            margin: 20px 0;
-            padding: 25px 20px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 215, 0, 0.15));
-            border: 2px solid rgba(255, 107, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            animation: pulse 3s infinite;
-        }
-
-        .offer-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: offerShine 4s infinite;
-        }
-
-        .offer-title {
-    font-size: 22px;
-    color: #ffd700;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-        .offer-details {
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 10px;
+        /* التصميم الجديد للتاريخ والعرض */
+        .gradient-text {
+            font-size: 24px;
             font-weight: bold;
-            position: relative;
-        }
-
-        .offer-percentage {
-            font-size: 45px;
-            color: #ff6b00;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
-            margin: 10px 0;
-            animation: pulse 2s infinite;
-        }
-
-        .offer-duration {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 20px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-            position: relative;
-        }
-
-        .preparation-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid #ff6b00;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 20px 0;
-            animation: pulse 2s infinite;
-        }
-
-        .preparation-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .preparation-icon {
-            font-size: 30px;
-            animation: bounce 2s infinite;
-        }
-
-        .preparation-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffd700;
-        }
-
-        .progress-container {
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        .progress-fill {
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b00, #ff8c00);
-            border-radius: 5px;
-            animation: progressAnimation 2s infinite alternate;
-        }
-
-        .progress-text {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: bold;
-        }
-
-        @keyframes progressAnimation {
-            0% { width: 65%; }
-            100% { width: 75%; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes offerShine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200px 0; }
-            100% { background-position: 200px 0; }
-        }
-
-        .branch-return {
-            font-size: 18px;
-            color: #fff;
-            margin: 15px 0;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-        }
-
-        /* زر صور الافتتاح الجديد */
-        .gallery-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #ff6b00, #ff8c00);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
-            margin: 15px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: pulse 2s infinite;
-        }
-
-        .gallery-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .gallery-button:hover::before {
-            left: 100%;
-        }
-
-        .gallery-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.6);
-            background: linear-gradient(135deg, #ff8c00, #ff6b00);
-        }
-
-        .gallery-button i {
-            margin-left: 8px;
-            font-size: 20px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 2s ease-out 1.5s both;
-            margin-top: 20px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
-        }
-
-        .main-title {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            animation: titleGlow 3s infinite alternate;
-            line-height: 1.4;
-            padding: 0 10px;
             background: linear-gradient(45deg, #ffd700, #ff6b00, #ff8c00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin: 10px 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        .date-elegant {
+            font-size: 20px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #ff6b00;
+            margin: 10px 0;
             font-weight: bold;
         }
 
-        @keyframes titleGlow {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+        .promo-beautiful {
+            font-size: 18px;
+            color: #fff;
+            margin: 15px 0;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b00, #ff8c00);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .branch-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 10px;
+            line-height: 1.6;
+            animation: fadeInUp 2s ease-out 2s both;
+            padding: 0 10px 30px 10px;
+            font-weight: normal;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
                 transform: scale(1);
             }
-            100% {
-                text-shadow: 0 0 20px rgba(255, 107, 0, 0.8);
-                transform: scale(1.02);
+            25%, 75% {
+                opacity: 0.3;
+                transform: scale(0.95);
             }
-        }
-
-        @media (max-width: 768px) {
-    .main-title {
-        font-size: 20px; /* قللنا أكثر للشاشات الصغيرة */
-        white-space: nowrap;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 18px; /* أصغر حجم للجوال */
-        white-space: nowrap;
-    }
-}
-
-        .back-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        .home-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #ff6b00, #ff8c00);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
-        }
-        
-        .home-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
-            background: linear-gradient(45deg, #ff8c00, #ff6b00);
-        }
-        
-        .footer {
-            margin-top: 30px;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 12px;
-            animation: fadeIn 3s ease-out 2s both;
-            padding: 0 10px;
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* تأثيرات الخلفية المتحركة */
@@ -549,7 +165,19 @@
             animation-delay: 4s;
         }
 
-        /* تأثيرات الحركة */
+        /* تصميم الصورة الجديدة */
+        .custom-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #ff6b00;
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.6);
+            animation: bounce 2s infinite, glow 2s infinite alternate;
+            display: block;
+        }
+
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
@@ -560,20 +188,81 @@
                 opacity: 0.3;
             }
         }
+        
+        .container {
+            max-width: 90%;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .coming-soon-card {
+            background: rgba(0, 26, 51, 0.95);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
 
-        @keyframes blink {
-            0%, 50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            25%, 75% {
-                opacity: 0.3;
-                transform: scale(0.95);
+        /* تأثير البريق */
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
             }
             100% {
-                opacity: 1;
-                transform: scale(1);
+                transform: translateX(100%) translateY(100%) rotate(45deg);
             }
+        }
+        
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite, glow 2s infinite alternate;
+            display: block;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(255, 107, 0, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.8));
+            }
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #fff;
+            animation: pulse 2s infinite, slideIn 1.5s ease-out;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
         }
 
         @keyframes pulse {
@@ -595,6 +284,15 @@
                 transform: translateY(0);
             }
         }
+        
+        .branch-name {
+            color: #ff6b00;
+            font-size: 24px;
+            margin: 15px 0;
+            font-weight: bold;
+            animation: colorChange 3s infinite alternate, fadeIn 2s ease-out;
+            line-height: 1.3;
+        }
 
         @keyframes colorChange {
             0% {
@@ -615,6 +313,15 @@
                 opacity: 1;
             }
         }
+        
+        p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            animation: fadeInUp 2s ease-out 0.5s both;
+            padding: 0 10px;
+        }
 
         @keyframes fadeInUp {
             from {
@@ -624,6 +331,141 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+        
+        .countdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 15px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 2s ease-out 1s both;
+        }
+        
+        .countdown-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .progress {
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b00, #ff8c00);
+            border-radius: 3px;
+            animation: progressAnimation 2s infinite alternate;
+        }
+
+        @keyframes progressAnimation {
+            0% {
+                width: 70%;
+            }
+            100% {
+                width: 75%;
+            }
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease-out 1.5s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .home-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #ff6b00, #ff8c00);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .home-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+            background: linear-gradient(45deg, #ff8c00, #ff6b00);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            animation: fadeIn 3s ease-out 2s both;
+            padding: 0 10px;
+        }
+
+        /* تأثيرات النص المتحرك */
+        .floating-text {
+            animation: floatText 4s ease-in-out infinite;
+        }
+
+        @keyframes floatText {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* النجوم المتلألئة */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
             }
         }
 
@@ -637,53 +479,56 @@
                 padding: 50px 40px;
             }
             
-            .main-title {
+            .custom-image {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 30px;
+            }
+            
+            .icon {
+                font-size: 80px;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
                 font-size: 36px;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
             }
             
             .branch-name {
-                font-size: 30px;
+                font-size: 28px;
                 margin: 20px 0;
             }
             
-            .event-info {
-                padding: 30px 25px;
-                margin: 30px 0;
-            }
-            
-            .event-date {
-                font-size: 30px;
-            }
-            
-            .event-time {
-                font-size: 24px;
-            }
-            
-            .offer-section {
-                margin: 30px 0;
-                padding: 30px 25px;
-            }
-            
-            .offer-title {
+            .gradient-text {
                 font-size: 28px;
             }
             
-            .offer-details {
-                font-size: 24px;
+            .date-elegant {
+                font-size: 22px;
             }
             
-            .offer-percentage {
-                font-size: 50px;
-            }
-            
-            .preparation-text, .branch-return {
+            .promo-beautiful {
                 font-size: 20px;
             }
             
-            .gallery-button {
-                padding: 18px 35px;
-                font-size: 20px;
+            p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            
+            .countdown {
+                padding: 25px 20px;
+                margin: 30px 0;
+            }
+            
+            .countdown-text {
+                font-size: 18px;
+            }
+            
+            .progress-bar {
+                height: 8px;
+                margin: 15px 0;
             }
             
             .back-link, .home-link {
@@ -695,6 +540,12 @@
             .footer {
                 font-size: 14px;
                 margin-top: 40px;
+            }
+            
+            .custom-spacer {
+                height: 50px;
+                width: 100%;
+                display: block;
             }
             
             .circle-1 {
@@ -723,41 +574,38 @@
                 padding: 25px 15px;
             }
             
-            .main-title {
-                font-size: 26px;
+            .custom-image {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 15px;
+            }
+            
+            .icon {
+                font-size: 50px;
+            }
+            
+            h1 {
+                font-size: 24px;
             }
             
             .branch-name {
-                font-size: 22px;
-            }
-            
-            .event-date {
-                font-size: 22px;
-            }
-            
-            .event-time {
-                font-size: 18px;
-            }
-            
-            .offer-title {
-                font-size: 22px;
-            }
-            
-            .offer-details {
                 font-size: 20px;
             }
             
-            .offer-percentage {
-                font-size: 35px;
+            .gradient-text {
+                font-size: 20px;
             }
             
-            .preparation-text, .branch-return {
+            .date-elegant {
+                font-size: 18px;
+            }
+            
+            .promo-beautiful {
                 font-size: 16px;
             }
             
-            .gallery-button {
-                padding: 12px 25px;
-                font-size: 16px;
+            p {
+                font-size: 14px;
             }
             
             .button-group {
@@ -782,47 +630,28 @@
 
     <div class="container">
         <div class="coming-soon-card">
-            <div class="header-image">
-                <img src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="افتتاح فرع القصيم">
-            </div>
+            <!-- الصورة الجديدة بدلاً من الأيقونة -->
+            <img id="branchImage" src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="مركز اسطنبول" class="custom-image" style="display: none;">
+            <div id="defaultIcon" class="icon">🎊</div>
             
-            <!-- العنوان الرئيسي -->
-            <h1 class="main-title"> كونوا معنا في الإفتتاح </h1>
-            
-            <!-- معلومات الحدث مع تصميم محسن -->
-            <div class="event-info">
-    <div class="event-date">🗓️ الجمعة 7 نوفمبر 2025</div>
-    <div class="event-time">⏰ الساعة 6:00 مساءً</div>
-</div>
-            
-            <!-- العروض بتصميم خرافي -->
-            <div class="offer-section">
-    <div class="offer-title">🎊 عرض الافتتاح الكبير 🎊</div>
-    <div class="offer-percentage">15% خصم</div>
-    <div class="offer-details">خصم حصري على جميع المشتريات</div>
-    <div class="offer-duration">لمدة 5 أيام فقط من الافتتاح</div>
-</div>
-            
-            <!-- زر صور الافتتاح -->
-          <!--  <a href="#" class="gallery-button"> 
-                📸 صور حفل الافتتاح
-            </a> -->
-            
-            <!-- مربع جاري التجهيز -->
-            <div class="preparation-box">
-                <div class="preparation-content">
-                    <div class="preparation-icon">🚧</div>
-                    <div class="preparation-text">جاري التجهيز للافتتاح</div>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <div class="progress-text">قريبًا</div>
-                    </div>
+            <!-- النص الرئيسي مع تأثير الظهور والاختفاء -->
+            <div class="text-container">
+                <h1 id="mainTitle" class="blinking-text">ترقبوا الافتتاح</h1>
+                <div id="branchInfo" class="branch-container">
+                    <!-- سيتم عرض اسم الفرع هنا بواسطة JavaScript -->
                 </div>
             </div>
+
+            <div class="custom-spacer"></div>
+
+            <div class="countdown">
+                <div class="countdown-text">جاري التجهيز للافتتاح</div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="countdown-text">قريبًا</div>
+            </div>
             
-            <!-- أزرار التنقل -->
             <div class="button-group">
                 <a href="branches.html" class="back-link">↩ العودة إلى الفروع</a>
                 <a href="index.html" class="home-link">🏠 الرئيسية</a>
@@ -833,24 +662,95 @@
             <p>جميع الحقوق محفوظة © 2023 مركز اسطنبول للأزياء</p>
         </div>
     </div>
-    <script>
-// الحصول على اسم الفرع من الرابط
-function getBranchName() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('branch') || 'القصيم'; // افتراضي القصيم
-}
 
-// تحديث المحتوى حسب الفرع
-function updateContentForBranch() {
-    const branch = getBranchName();
-    
-      } else if (branchName.includes('العريجاء')) {
+    <script>
+        // استخراج اسم الفرع من الرابط
+        function getBranchName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const branch = urlParams.get('branch');
+            return branch || 'الجديد';
+        }
+        
+        // عرض اسم الفرع والنص المخصص في الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const branchName = getBranchName();
+            const branchInfo = document.getElementById('branchInfo');
+            const mainTitle = document.getElementById('mainTitle');
+            const branchImage = document.getElementById('branchImage');
+            const defaultIcon = document.getElementById('defaultIcon');
+            
+            let branchDescription = '';
+            
+            // تحديد النص بناءً على اسم الفرع
+            if (branchName.includes('القصيم')) {
+                // تغيير العنوان الرئيسي
+                mainTitle.textContent = 'موعدنا الجمعه كونو معنا';
+                
+                branchDescription = 'موعدنا الجمعه 07/11/2025 الساعه 6 مساء <br>خصم 15% على الفاتوره لمدة 5 ايام';
+                
+                // إظهار الصورة وإخفاء الأيقونة
+                branchImage.style.display = 'block';
+                defaultIcon.style.display = 'none';
+                
+                // إخفاء الفقاعات
+                document.querySelector('.bg-animation').style.display = 'none';
+                
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <div class="gradient-text">موعدنا الجمعه كونو معنا</div>
+                    <div class="date-elegant">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥ ⏰ ٦:٠٠ مساءً</div>
+                    <div class="promo-beautiful">
+                        خصم ١٥٪ على الفاتورة<br>
+                        📅 لمدة ٥ أيام
+                    </div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
+            } else if (branchName.includes('العريجاء')) {
                 branchDescription = 'قريبا الافتتاح لفرعنا الجديد غرب الرياض طريق المدينة المنورة عروض مغرية وجوائز وهدايا قيمة';
+                
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
+                createStars();
             } else {
                 branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
+                
+                branchInfo.innerHTML = `
+                    <div class="blinking-branch">فرع ${branchName}</div>
+                    <p class="branch-description">${branchDescription}</p>
+                `;
+                
+                createStars();
             }
-// تشغيل عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', updateContentForBranch);
-</script>
+        });
+
+        // إنشاء النجوم المتلألئة
+        function createStars() {
+            const bgAnimation = document.querySelector('.bg-animation');
+            const starCount = window.innerWidth < 768 ? 15 : 20;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // مواقع عشوائية
+                const size = Math.random() * 2 + 1;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const delay = Math.random() * 2;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${left}%`;
+                star.style.top = `${top}%`;
+                star.style.animationDelay = `${delay}s`;
+                
+                bgAnimation.appendChild(star);
+            }
+        }
+    </script>
 </body>
 </html>
