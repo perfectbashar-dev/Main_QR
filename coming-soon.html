@@ -833,5 +833,24 @@
             <p>جميع الحقوق محفوظة © 2023 مركز اسطنبول للأزياء</p>
         </div>
     </div>
+    <script>
+// الحصول على اسم الفرع من الرابط
+function getBranchName() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('branch') || 'القصيم'; // افتراضي القصيم
+}
+
+// تحديث المحتوى حسب الفرع
+function updateContentForBranch() {
+    const branch = getBranchName();
+    
+      } else if (branchName.includes('العريجاء')) {
+                branchDescription = 'قريبا الافتتاح لفرعنا الجديد غرب الرياض طريق المدينة المنورة عروض مغرية وجوائز وهدايا قيمة';
+            } else {
+                branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
+            }
+// تشغيل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', updateContentForBranch);
+</script>
 </body>
 </html>
