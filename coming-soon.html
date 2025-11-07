@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ترقبوا الافتتاح - مركز اسطنبول</title>
+    <title>افتتاح فرع القصيم - مركز اسطنبول</title>
     <style>
         * {
             margin: 0;
@@ -58,8 +58,7 @@
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
-
-        /* تصميم الصورة العلوية */
+         
         .header-image {
             width: 100%;
             max-width: 600px;
@@ -667,94 +666,6 @@
         </div>
     </div>
 
-    <script>
-        // استخراج اسم الفرع من الرابط
-        function getBranchName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const branch = urlParams.get('branch');
-            return branch || 'الجديد';
-        }
-        
-        // عرض اسم الفرع والنص المخصص في الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            const branchName = getBranchName();
-            const branchInfo = document.getElementById('branchInfo');
-            const mainTitle = document.getElementById('mainTitle');
-            const branchImage = document.getElementById('branchImage');
-            const defaultIcon = document.getElementById('defaultIcon');
-            
-            let branchDescription = '';
-            
-            // تحديد النص بناءً على اسم الفرع
-            if (branchName.includes('القصيم')) {
-                // تغيير العنوان الرئيسي
-                mainTitle.textContent = 'موعدنا الجمعه كونو معنا';
-                
-                branchDescription = 'موعدنا الجمعه 07/11/2025 الساعه 6 مساء <br>خصم 15% على الفاتوره لمدة 5 ايام';
-                
-                // إظهار الصورة وإخفاء الأيقونة
-                branchImage.style.display = 'block';
-                defaultIcon.style.display = 'none';
-                
-                // إخفاء الفقاعات
-                document.querySelector('.bg-animation').style.display = 'none';
-                
-                branchInfo.innerHTML = `
-                    <div class="blinking-branch">فرع ${branchName}</div>
-                    <div class="gradient-text">موعدنا الجمعه كونو معنا</div>
-                    <div class="date-elegant">🗓️ الجمعة ٧ نوفمبر ٢٠٢٥ ⏰ ٦:٠٠ مساءً</div>
-                    <div class="promo-beautiful">
-                        خصم ١٥٪ على الفاتورة<br>
-                        📅 لمدة ٥ أيام
-                    </div>
-                    <p class="branch-description">${branchDescription}</p>
-                `;
-                
-            } else if (branchName.includes('العريجاء')) {
-                branchDescription = 'قريبا الافتتاح لفرعنا الجديد غرب الرياض طريق المدينة المنورة عروض مغرية وجوائز وهدايا قيمة';
-                
-                branchInfo.innerHTML = `
-                    <div class="blinking-branch">فرع ${branchName}</div>
-                    <p class="branch-description">${branchDescription}</p>
-                `;
-                
-                createStars();
-            } else {
-                branchDescription = 'نحن نعمل على افتتاح الفرع قريبًا ليقدم لكم أجود المنتجات وأفضل العروض';
-                
-                branchInfo.innerHTML = `
-                    <div class="blinking-branch">فرع ${branchName}</div>
-                    <p class="branch-description">${branchDescription}</p>
-                `;
-                
-                createStars();
-            }
-        });
-
-        // إنشاء النجوم المتلألئة
-        function createStars() {
-            const bgAnimation = document.querySelector('.bg-animation');
-            const starCount = window.innerWidth < 768 ? 15 : 20;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                
-                // مواقع عشوائية
-                const size = Math.random() * 2 + 1;
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 2;
-                
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${left}%`;
-                star.style.top = `${top}%`;
-                star.style.animationDelay = `${delay}s`;
-                
-                bgAnimation.appendChild(star);
-            }
-        }
-    </script>
+    <!-- لا يوجد JavaScript يربط مع فرع العريجاء -->
 </body>
 </html>
