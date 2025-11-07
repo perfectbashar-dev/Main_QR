@@ -26,101 +26,424 @@
             position: relative;
         }
 
-        /* تأثير الظهور والاختفاء للنصوص */
-        .text-container {
-            min-height: 150px;
+        .container {
+            max-width: 90%;
+            width: 100%;
+            margin: 0 auto;
             position: relative;
-            margin-bottom: 50px;
+            z-index: 1;
+        }
+        
+        .coming-soon-card {
+            background: rgba(0, 26, 51, 0.95);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
         }
 
-        .blinking-text {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #fff;
-            animation: blink 3s infinite, slideIn 1.5s ease-out;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            line-height: 1.3;
+        /* تأثير البريق */
+        .coming-soon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        /* تصميم الصورة العلوية */
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            border: 3px solid #ff6b00;
+            animation: imageGlow 3s infinite alternate;
+            position: relative;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            filter: brightness(0.95);
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .header-image::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.1) 0%,
+                rgba(0,0,0,0) 80%
+            );
+            pointer-events: none;
         }
 
-        .branch-container {
+        @keyframes imageGlow {
+            0% {
+                box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+                transform: translateY(0);
+            }
+            100% {
+                box-shadow: 0 12px 35px rgba(255, 107, 0, 0.8);
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        /* العنوان الرئيسي */
+        .main-title {
+            font-size: 26px;
+            margin-bottom: 15px;
+            padding: 0 10px;
+            color: #fff;
+            animation: pulse 2s infinite, slideIn 1.5s ease-out;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* تصميم جديد لتاريخ الافتتاح */
+        .event-info {
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 215, 0, 0.2));
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 2s ease-out 1s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-info::before {
+            content: '';
             position: absolute;
-            top: 60px;
+            top: 0;
             left: 0;
             right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b00, #ffd700, #ff6b00);
+            animation: shimmer 3s infinite linear;
         }
 
-        .blinking-branch {
+        .event-date {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .event-date::before, .event-date::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             color: #ff6b00;
-            font-size: 24px;
-            margin: 0;
-            font-weight: bold;
-            animation: blink 3s infinite 1.5s, colorChange 3s infinite alternate;
-            line-height: 1.3;
+            font-size: 20px;
         }
 
-        /* التصميم الجديد للتاريخ والعرض */
-        .gradient-text {
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ffd700, #ff6b00, #ff8c00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 10px 0;
-            animation: glow 2s infinite alternate;
+        .event-date::before {
+            left: -10px;
         }
 
-        .date-elegant {
+        .event-date::after {
+            right: -10px;
+        }
+
+        .event-time {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* تصميم جديد للعروض */
+        .offer-section {
+            margin: 20px 0;
+            padding: 25px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 215, 0, 0.15));
+            border: 2px solid rgba(255, 107, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        .offer-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: offerShine 4s infinite;
+        }
+
+        .offer-title {
+            font-size: 22px;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .offer-details {
             font-size: 20px;
             color: #fff;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: 2px solid #ff6b00;
-            margin: 10px 0;
+            margin-bottom: 10px;
             font-weight: bold;
+            position: relative;
         }
 
-        .promo-beautiful {
-            font-size: 18px;
-            color: #fff;
-            margin: 15px 0;
+        .offer-percentage {
+            font-size: 45px;
+            color: #ff6b00;
             font-weight: bold;
-            background: linear-gradient(45deg, #ff6b00, #ff8c00);
-            padding: 12px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+            margin: 10px 0;
             animation: pulse 2s infinite;
         }
 
-        .branch-description {
+        .offer-duration {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
             margin-top: 10px;
-            line-height: 1.6;
-            animation: fadeInUp 2s ease-out 2s both;
-            padding: 0 10px 30px 10px;
-            font-weight: normal;
             position: relative;
-            z-index: 2;
         }
 
-        @keyframes blink {
-            0%, 50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            25%, 75% {
-                opacity: 0.3;
-                transform: scale(0.95);
+        /* مربع جاري التجهيز */
+        .preparation-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #ff6b00;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .preparation-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .preparation-icon {
+            font-size: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .preparation-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b00, #ff8c00);
+            border-radius: 5px;
+            animation: progressAnimation 2s infinite alternate;
+        }
+
+        .progress-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+        }
+
+        /* تأثيرات الحركة */
+        @keyframes progressAnimation {
+            0% { width: 65%; }
+            100% { width: 75%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes offerShine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
             }
             100% {
-                opacity: 1;
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
                 transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* أزرار التنقل */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease-out 1.5s both;
+            margin-top: 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .home-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff6b00, #ff8c00);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .home-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+            background: linear-gradient(45deg, #ff8c00, #ff6b00);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            animation: fadeIn 3s ease-out 2s both;
+            padding: 0 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
 
@@ -165,19 +488,6 @@
             animation-delay: 4s;
         }
 
-        /* تصميم الصورة الجديدة */
-        .custom-image {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px auto;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 3px solid #ff6b00;
-            box-shadow: 0 0 25px rgba(255, 107, 0, 0.6);
-            animation: bounce 2s infinite, glow 2s infinite alternate;
-            display: block;
-        }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
@@ -186,286 +496,6 @@
             50% {
                 transform: translateY(-15px) rotate(180deg);
                 opacity: 0.3;
-            }
-        }
-        
-        .container {
-            max-width: 90%;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .coming-soon-card {
-            background: rgba(0, 26, 51, 0.95);
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        /* تأثير البريق */
-        .coming-soon-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
-        }
-        
-        .icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite, glow 2s infinite alternate;
-            display: block;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-10px) scale(1.05);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                filter: drop-shadow(0 0 5px rgba(255, 107, 0, 0.5));
-            }
-            to {
-                filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.8));
-            }
-        }
-        
-        h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #fff;
-            animation: pulse 2s infinite, slideIn 1.5s ease-out;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            line-height: 1.3;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.03);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .branch-name {
-            color: #ff6b00;
-            font-size: 24px;
-            margin: 15px 0;
-            font-weight: bold;
-            animation: colorChange 3s infinite alternate, fadeIn 2s ease-out;
-            line-height: 1.3;
-        }
-
-        @keyframes colorChange {
-            0% {
-                color: #ff6b00;
-                text-shadow: 0 0 8px rgba(255, 107, 0, 0.5);
-            }
-            100% {
-                color: #ff8c00;
-                text-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 25px;
-            line-height: 1.6;
-            animation: fadeInUp 2s ease-out 0.5s both;
-            padding: 0 10px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .countdown {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px 15px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeInUp 2s ease-out 1s both;
-        }
-        
-        .countdown-text {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 12px 0;
-        }
-
-        .progress {
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b00, #ff8c00);
-            border-radius: 3px;
-            animation: progressAnimation 2s infinite alternate;
-        }
-
-        @keyframes progressAnimation {
-            0% {
-                width: 70%;
-            }
-            100% {
-                width: 75%;
-            }
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 2s ease-out 1.5s both;
-        }
-        
-        .back-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
-        }
-        
-        .back-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        .home-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background: linear-gradient(45deg, #ff6b00, #ff8c00);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
-            flex: 1;
-            min-width: 140px;
-            text-align: center;
-        }
-        
-        .home-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
-            background: linear-gradient(45deg, #ff8c00, #ff6b00);
-        }
-        
-        .footer {
-            margin-top: 30px;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 12px;
-            animation: fadeIn 3s ease-out 2s both;
-            padding: 0 10px;
-        }
-
-        /* تأثيرات النص المتحرك */
-        .floating-text {
-            animation: floatText 4s ease-in-out infinite;
-        }
-
-        @keyframes floatText {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* النجوم المتلألئة */
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.8);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.1);
             }
         }
 
@@ -479,56 +509,43 @@
                 padding: 50px 40px;
             }
             
-            .custom-image {
-                width: 250px;
-                height: 250px;
-                margin-bottom: 30px;
-            }
-            
-            .icon {
-                font-size: 80px;
-                margin-bottom: 30px;
-            }
-            
-            h1 {
+            .main-title {
                 font-size: 36px;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
             
-            .branch-name {
-                font-size: 28px;
-                margin: 20px 0;
-            }
-            
-            .gradient-text {
-                font-size: 28px;
-            }
-            
-            .date-elegant {
-                font-size: 22px;
-            }
-            
-            .promo-beautiful {
-                font-size: 20px;
-            }
-            
-            p {
-                font-size: 18px;
-                margin-bottom: 30px;
-            }
-            
-            .countdown {
-                padding: 25px 20px;
+            .event-info {
+                padding: 30px 25px;
                 margin: 30px 0;
             }
             
-            .countdown-text {
-                font-size: 18px;
+            .event-date {
+                font-size: 30px;
             }
             
-            .progress-bar {
-                height: 8px;
-                margin: 15px 0;
+            .event-time {
+                font-size: 24px;
+            }
+            
+            .offer-section {
+                margin: 30px 0;
+                padding: 30px 25px;
+            }
+            
+            .offer-title {
+                font-size: 28px;
+            }
+            
+            .offer-details {
+                font-size: 24px;
+            }
+            
+            .offer-percentage {
+                font-size: 50px;
+            }
+            
+            .preparation-text {
+                font-size: 20px;
             }
             
             .back-link, .home-link {
@@ -540,27 +557,6 @@
             .footer {
                 font-size: 14px;
                 margin-top: 40px;
-            }
-            
-            .custom-spacer {
-                height: 50px;
-                width: 100%;
-                display: block;
-            }
-            
-            .circle-1 {
-                width: 100px;
-                height: 100px;
-            }
-
-            .circle-2 {
-                width: 150px;
-                height: 150px;
-            }
-
-            .circle-3 {
-                width: 80px;
-                height: 80px;
             }
         }
 
@@ -574,38 +570,32 @@
                 padding: 25px 15px;
             }
             
-            .custom-image {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 15px;
+            .main-title {
+                font-size: 26px;
             }
             
-            .icon {
-                font-size: 50px;
+            .event-date {
+                font-size: 22px;
             }
             
-            h1 {
-                font-size: 24px;
-            }
-            
-            .branch-name {
-                font-size: 20px;
-            }
-            
-            .gradient-text {
-                font-size: 20px;
-            }
-            
-            .date-elegant {
+            .event-time {
                 font-size: 18px;
             }
             
-            .promo-beautiful {
-                font-size: 16px;
+            .offer-title {
+                font-size: 22px;
             }
             
-            p {
-                font-size: 14px;
+            .offer-details {
+                font-size: 20px;
+            }
+            
+            .offer-percentage {
+                font-size: 35px;
+            }
+            
+            .preparation-text {
+                font-size: 16px;
             }
             
             .button-group {
@@ -634,22 +624,24 @@
                 <img src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="افتتاح فرع القصيم">
             </div>
             
-            <!-- النص الرئيسي مع تأثير الظهور والاختفاء -->
-             <h1 class="main-title"> كونوا معنا في الإفتتاح </h1>
-
-             <div class="event-info">
-    <div class="event-date">🗓️ الجمعة 7 نوفمبر 2025</div>
-    <div class="event-time">⏰ الساعة 6:00 مساءً</div>
-                 
-</div>
-
-     <div class="offer-section">
-    <div class="offer-title">🎊 عرض الافتتاح الكبير 🎊</div>
-    <div class="offer-percentage">15% خصم</div>
-    <div class="offer-details">خصم حصري على جميع المشتريات</div>
-    <div class="offer-duration">لمدة 5 أيام فقط من الافتتاح</div>
-</div>  
+            <!-- العنوان الرئيسي -->
+            <h1 class="main-title"> كونوا معنا في الإفتتاح </h1>
             
+            <!-- معلومات الحدث مع تصميم محسن -->
+            <div class="event-info">
+                <div class="event-date">🗓️ الجمعة 7 نوفمبر 2025</div>
+                <div class="event-time">⏰ الساعة 6:00 مساءً</div>
+            </div>
+            
+            <!-- العروض بتصميم خرافي -->
+            <div class="offer-section">
+                <div class="offer-title">🎊 عرض الافتتاح الكبير 🎊</div>
+                <div class="offer-percentage">15% خصم</div>
+                <div class="offer-details">خصم حصري على جميع المشتريات</div>
+                <div class="offer-duration">لمدة 5 أيام فقط من الافتتاح</div>
+            </div>
+            
+            <!-- مربع جاري التجهيز -->
             <div class="preparation-box">
                 <div class="preparation-content">
                     <div class="preparation-icon">🚧</div>
@@ -663,6 +655,7 @@
                 </div>
             </div>
             
+            <!-- أزرار التنقل -->
             <div class="button-group">
                 <a href="branches.html" class="back-link">↩ العودة إلى الفروع</a>
                 <a href="index.html" class="home-link">🏠 الرئيسية</a>
