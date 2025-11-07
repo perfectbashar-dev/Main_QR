@@ -711,6 +711,56 @@
         transform: translateX(100%) translateY(100%) rotate(45deg);
     }
 }
+/* تصميم عرض الشرائح التلقائي */
+.auto-slideshow {
+    max-width: 600px;
+    height: 350px;
+    position: relative;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+    border: 3px solid #ff6b00;
+    animation: imageGlow 3s infinite alternate;
+}
+
+.auto-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.auto-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes imageGlow {
+    0% {
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+        transform: translateY(0);
+    }
+    100% {
+        box-shadow: 0 15px 40px rgba(255, 107, 0, 0.8);
+        transform: translateY(-5px);
+    }
+}
+        
     </style>
 </head>
 <body>
@@ -723,10 +773,22 @@
 
     <div class="container">
         <div class="coming-soon-card">
-            <div class="header-image">
-                <img src="https://i.ibb.co/pBqbLQrQ/IMG-20251105-WA0154.jpg" alt="افتتاح فرع القصيم">
-            </div>
             
+            <!-- عرض شرائح تلقائي بدون أزرار -->
+<div class="auto-slideshow">
+    <div class="auto-slide fade">
+        <img src="https://i.ibb.co/8gTZ1YY9/IMG-20251105-WA0154.jpg" alt="صورة الافتتاح 1">
+    </div>
+    <div class="auto-slide fade">
+        <img src="https://i.ibb.co/V03gRT7y/IMG-20251105-WA0155.jpg" alt="صورة الافتتاح 2">
+    </div>
+    <div class="auto-slide fade">
+        <img src="https://i.ibb.co/GQ7ndQnQ/IMG-20251107-WA0000.jpg" alt="صورة الافتتاح 3">
+    </div>
+    <div class="auto-slide fade">
+        <img src="https://i.ibb.co/xKpV53m9/IMG-20251105-WA0024.jpg" alt="صورة الافتتاح 4">
+    </div>
+</div>
             <!-- العنوان الرئيسي -->
             <h1 class="main-title">🎉 تم افتتاح فرع القصيم 🎉</h1>
             
@@ -735,7 +797,7 @@
             
             <!-- العروض بتصميم خرافي -->
             <div class="celebrations-section">
-    <div class="celebration-title">🎊 مبروك الافتتاح 🎊</div>
+    <div class="celebration-title">  🎊 مبروك الافتتاح 🎊</div>
     <div class="main-offer">
         <div class="offer-percentage-large">15%</div>
         <div class="offer-text">خصم على جميع المشتريات</div>
@@ -763,5 +825,31 @@
             <p>جميع الحقوق محفوظة © 2023 مركز اسطنبول للأزياء</p>
         </div>
     </div>
+    <script>
+// عرض الشرائح التلقائي
+let slideIndex = 0;
+showAutoSlides();
+
+function showAutoSlides() {
+    let slides = document.getElementsByClassName("auto-slide");
+    
+    // أخفي كل الصور
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    // انتقل للصورة التالية
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    
+    // أظهر الصورة الحالية
+    slides[slideIndex-1].style.display = "block";
+    
+    // غير الصورة كل 3 ثواني
+    setTimeout(showAutoSlides, 3000);
+}
+</script>
 </body>
 </html>
