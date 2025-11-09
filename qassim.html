@@ -711,10 +711,20 @@
         transform: translateX(100%) translateY(100%) rotate(45deg);
     }
 }
+
+        .auto-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #001f3f;
+    display: block;
+    image-rendering: -webkit-optimize-contrast; /* تحسين الجودة */
+    image-rendering: crisp-edges;
+}
 /* تصميم عرض الشرائح التلقائي */
 .auto-slideshow {
     max-width: 600px;
-    height: 350px;
+    height: 400px; /* زودنا الارتفاع */
     position: relative;
     margin: 0 auto 20px;
     border-radius: 15px;
@@ -736,7 +746,8 @@
 .auto-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* غيرنا من 'cover' إلى 'contain' */
+    background: #001f3f; /* خلفية زرقاء تناسب التصميم */
     display: block;
 }
 
@@ -775,19 +786,8 @@
         <div class="coming-soon-card">
             
             <!-- عرض شرائح تلقائي بدون أزرار -->
-<div class="auto-slideshow">
-    <div class="auto-slide fade">
-        <img src="https://i.ibb.co/8gTZ1YY9/IMG-20251105-WA0154.jpg" alt="صورة الافتتاح 1">
-    </div>
-    <div class="auto-slide fade">
-        <img src="https://i.ibb.co/V03gRT7y/IMG-20251105-WA0155.jpg" alt="صورة الافتتاح 2">
-    </div>
-    <div class="auto-slide fade">
-        <img src="https://i.ibb.co/GQ7ndQnQ/IMG-20251107-WA0000.jpg" alt="صورة الافتتاح 3">
-    </div>
-    <div class="auto-slide fade">
-        <img src="https://i.ibb.co/xKpV53m9/IMG-20251105-WA0024.jpg" alt="صورة الافتتاح 4">
-    </div>
+<div class="header-image">
+    <img src="https://i.ibb.co/svFKV5v4/IMG-20251109-WA0002.jpg" alt="فرع القصيم">
 </div>
             <!-- العنوان الرئيسي -->
             <h1 class="main-title">🎉 تم افتتاح فرع القصيم 🎉</h1>
@@ -798,16 +798,13 @@
             <!-- العروض بتصميم خرافي -->
             <div class="celebrations-section">
     <div class="celebration-title">  🎊 مبروك الافتتاح 🎊</div>
-    <div class="main-offer">
-        <div class="offer-percentage-large">15%</div>
-        <div class="offer-text">خصم على جميع المشتريات</div>
-    </div>
-    <div class="offer-features">
-        
-        <div class="feature">⭐ عروض حصرية</div>
-    </div>
-    <div class="offer-timer">
-        ⏰ العرض ساري لمدة 5 أيام فقط
+    <!-- نص تنبيه العرض -->
+<div class="offer-alert">
+    <div class="alert-icon">⏰</div>
+    <div class="alert-text">
+        <strong>آخر عرض 15% يوم الثلاثاء 11/11/2025</strong>
+        <br>
+        <span class="urgent-call">الحق ما تلحق! 🚨</span>
     </div>
 </div>
             
@@ -827,29 +824,7 @@
     </div>
     <script>
 // عرض الشرائح التلقائي
-let slideIndex = 0;
-showAutoSlides();
 
-function showAutoSlides() {
-    let slides = document.getElementsByClassName("auto-slide");
-    
-    // أخفي كل الصور
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    
-    // انتقل للصورة التالية
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-    
-    // أظهر الصورة الحالية
-    slides[slideIndex-1].style.display = "block";
-    
-    // غير الصورة كل 3 ثواني
-    setTimeout(showAutoSlides, 2000);
-}
 </script>
 </body>
 </html>
