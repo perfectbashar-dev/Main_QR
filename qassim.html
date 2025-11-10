@@ -771,6 +771,111 @@
         transform: translateY(-5px);
     }
 }
+
+
+     /* تصميم أزرار التواصل */
+.social-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.map-button, .snapchat-button {
+    display: block;
+    padding: 20px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.map-button {
+    background: linear-gradient(135deg, #34a853, #0f9d58);
+}
+
+.snapchat-button {
+    background: linear-gradient(135deg, #fffc00, #ffd700);
+}
+
+.map-button:hover, .snapchat-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.map-button:hover {
+    background: linear-gradient(135deg, #0f9d58, #34a853);
+}
+
+.snapchat-button:hover {
+    background: linear-gradient(135deg, #ffd700, #fffc00);
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: right;
+}
+
+.button-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.button-icon img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.button-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.snapchat-button .button-text {
+    color: #001f3f; /* نص غامق للسناب شات */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .social-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-content {
+        gap: 12px;
+    }
+    
+    .button-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .button-icon img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .button-text {
+        font-size: 14px;
+    }
+}   
         
     </style>
 </head>
@@ -810,7 +915,28 @@
             
             <!-- مربع جاري التجهيز -->
             
-            
+            <!-- أزرار التواصل الجديدة -->
+<div class="social-buttons">
+    <!-- زر خرائط جوجل -->
+    <a href="https://maps.app.goo.gl/p3TBfrNr8L4AHeQt6?g_st=ipc" class="map-button" target="_blank">
+        <div class="button-content">
+            <div class="button-icon">
+                <img src="https://i.ibb.co/svFKV5v4/IMG-20251109-WA0002.jpg" alt="خرائط">
+            </div>
+            <div class="button-text">اضغط هنا للوصل الى موقعنا</div>
+        </div>
+    </a>
+
+    <!-- زر سناب شات -->
+    <a href="https://www.snapchat.com/add/istanbulsa4" class="snapchat-button"
+        <div class="button-content">
+            <div class="button-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111878.png" alt="سناب شات">
+            </div>
+            <div class="button-text">on snapchat<br>اسطنبول للأزياء | القصيم</div>
+        </div>
+    </a>
+</div>
             <!-- أزرار التنقل -->
             <div class="button-group">
                 <a href="branches.html" class="back-link">↩ العودة إلى الفروع</a>
